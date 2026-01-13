@@ -10,6 +10,15 @@ import { ResourceCounter } from "./components/ResourceCounter"
 import { MainObject } from "./components/MainObject"
 import { Payment } from "./components/Payment"
 import { ProgressBar } from "./components/ProgressBar"
+// دالة تشغيل إعلان Adsgram الخاص بك
+const showMyAd = () => {
+  if (window.Adsgram) {
+    window.Adsgram.init({ blockId: "19316" }).show()
+      .then(() => alert("مبروك! ربحت مكافأة المشاهدة"))
+      .catch((err) => console.error("عذراً، فشل تحميل الإعلان", err));
+  }
+};
+
 import { Upgrades } from "./components/Upgrades"
 
 const TRACKING_ID = "UA-XXXXXXXXX-X"
@@ -58,8 +67,27 @@ export const App = () => {
   }
 
   return (
-    <div className={styles.gameScreen}>
-      <ResourceCounter coins={coins} crystals={crystals} energy={energy} />
+      <div className={styles.gameScreen}>
+      <div className={styles.container}>
+        {/* زر الإعلانات الخاص بك يوضع هنا */}
+        <button 
+          onClick={showMyAd} 
+          style={{
+            width: '100%',
+            padding: '15px',
+            backgroundColor: '#FFD700',
+            color: '#000',
+            fontWeight: 'bold',
+            borderRadius: '10px',
+            border: 'none',
+            marginBottom: '20px',
+            fontSize: '16px'
+          }}
+        >
+          📺 شاهد إعلان واربح 1000 نقطة
+        </button>
+
+        <ResourceCounter coins={coins} crystals={crystals} energy={energy} />
       <MainObject />
       <Clicker onClick={handleClick} />
       <Payment webApp={webApp} />
