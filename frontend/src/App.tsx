@@ -65,6 +65,23 @@ export const App = () => {
       <Payment webApp={webApp} />
       <ProgressBar progress={progress} />
       <Upgrades />
+                <button 
+            onClick={showMyAd} 
+            style={{
+              width: '100%',
+              padding: '12px',
+              backgroundColor: '#f3ba2f',
+              color: '#000',
+              fontWeight: 'bold',
+              borderRadius: '10px',
+              border: 'none',
+              marginTop: '10px',
+              fontSize: '16px'
+            }}
+          >
+            📺 شاهد إعلان واربح مكافأة
+          </button>
+
     </div>
   )
 }
